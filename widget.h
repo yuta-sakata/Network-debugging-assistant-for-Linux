@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include<QUdpSocket>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -14,6 +15,13 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+    QUdpSocket *udpSocket;
+
+private slots:
+    void on_openBt_clicked();
+    void readyRead_slot();
+
+    void on_sendBt_clicked();
 
 private:
     Ui::Widget *ui;
